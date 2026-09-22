@@ -123,8 +123,11 @@ function wireThemeToggle() {
   const button = document.createElement("button");
   button.className = "theme-toggle";
   button.type = "button";
+  button.setAttribute("role", "switch");
   button.innerHTML = `
-    <span class="theme-toggle-icon" aria-hidden="true"></span>
+    <span class="theme-toggle-knob" aria-hidden="true">
+      <span class="theme-toggle-icon"></span>
+    </span>
     <span class="theme-toggle-label"></span>
   `;
 
@@ -133,9 +136,9 @@ function wireThemeToggle() {
     const nextTheme = isLight ? "dark" : "light";
     button.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
     button.setAttribute("title", `Switch to ${nextTheme} mode`);
-    button.setAttribute("aria-pressed", String(isLight));
-    button.querySelector(".theme-toggle-icon").textContent = isLight ? "☾" : "☀";
-    button.querySelector(".theme-toggle-label").textContent = isLight ? "Dark" : "Light";
+    button.setAttribute("aria-checked", String(isLight));
+    button.querySelector(".theme-toggle-icon").textContent = isLight ? "☀" : "☾";
+    button.querySelector(".theme-toggle-label").textContent = `${isLight ? "Light" : "Dark"} mode`;
   };
 
   button.addEventListener("click", () => {
