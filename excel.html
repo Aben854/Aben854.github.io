@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excel — Abenezer Sultan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Home">
+        <img class="brand-logo" src="assets/logo.png" alt="Abenezer Sultan monogram" />
+      </a>
+      <div class="nav-links">
+        <a href="work.html">Work</a>
+        <a href="projects.html">Projects</a>
+        <a href="excel.html" aria-current="page">Excel</a>
+        <a href="books.html">Books & music</a>
+        <a href="certifications.html">Certifications</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" style="grid-template-columns: 1fr">
+      <div>
+        <p class="kicker">Excel</p>
+        <h1>Financial Data Analysis</h1>
+        <p class="lede">
+          View-only workbook from Principles of Accounting II, November 2022.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="excel-shell" aria-label="View-only Excel spreadsheet">
+        <div class="excel-bar">
+          <span>Financials.xlsx — view only</span>
+          <a href="data/financials.csv" download style="color:#fff">Download CSV</a>
+        </div>
+        <div style="overflow:auto">
+          <table class="excel-grid">
+            <thead>
+              <tr>
+                <th>Line item</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+                <th>FY</th>
+                <th>Check</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Revenue</td>
+                <td>184,200</td>
+                <td>201,450</td>
+                <td>196,880</td>
+                <td>228,610</td>
+                <td>811,140</td>
+                <td>=SUM(Q1:Q4)</td>
+              </tr>
+              <tr>
+                <td>COGS</td>
+                <td>97,110</td>
+                <td>104,320</td>
+                <td>101,540</td>
+                <td>118,900</td>
+                <td>421,870</td>
+                <td>=SUM(Q1:Q4)</td>
+              </tr>
+              <tr>
+                <td>Gross profit</td>
+                <td>87,090</td>
+                <td>97,130</td>
+                <td>95,340</td>
+                <td>109,710</td>
+                <td>389,270</td>
+                <td>=Rev-COGS</td>
+              </tr>
+              <tr>
+                <td>Operating expenses</td>
+                <td>41,250</td>
+                <td>43,800</td>
+                <td>44,160</td>
+                <td>49,020</td>
+                <td>178,230</td>
+                <td>=SUM(Q1:Q4)</td>
+              </tr>
+              <tr>
+                <td>Operating income</td>
+                <td>45,840</td>
+                <td>53,330</td>
+                <td>51,180</td>
+                <td>60,690</td>
+                <td>211,040</td>
+                <td>waterfall source</td>
+              </tr>
+              <tr>
+                <td>Cash</td>
+                <td>22,400</td>
+                <td>31,150</td>
+                <td>28,970</td>
+                <td>39,810</td>
+                <td>39,810</td>
+                <td>balance sheet</td>
+              </tr>
+              <tr>
+                <td>Reconciliation</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>0 variance</td>
+                <td>XLOOKUP + totals</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="thought">
+        <strong>Thought process.</strong>
+        I cleaned and structured the source ledger first so every statement drew
+        from the same validated facts. Pivot tables and XLOOKUP tied trial-balance
+        lines to the income statement and balance sheet. Formula checks
+        (SUM of quarters vs. FY, Gross profit = Revenue − COGS) caught
+        mismatches before charts. The waterfall used operating income bridges so
+        stakeholders could see what moved the year, not just the ending number.
+      </p>
+    </section>
+
+    <footer>
+      <span>Abenezer Sultan</span>
+      <a href="https://www.linkedin.com/in/abenezer-sultan-a5363623b" target="_blank" rel="noreferrer">LinkedIn</a>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

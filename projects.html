@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Abenezer Sultan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Home">
+        <img class="brand-logo" src="assets/logo.png" alt="Abenezer Sultan monogram" />
+      </a>
+      <div class="nav-links">
+        <a href="work.html">Work</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="excel.html">Excel</a>
+        <a href="books.html">Books & music</a>
+        <a href="certifications.html">Certifications</a>
+        <a class="nav-cta" href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" style="grid-template-columns: 1fr">
+      <div>
+        <p class="kicker">Projects</p>
+        <h1>Work that moves.</h1>
+        <p class="lede">
+          Cards auto-scroll. Hover to pause. Linked to GitHub and the live storefront.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="carousel-wrap">
+        <div class="carousel" id="project-carousel"></div>
+      </div>
+    </section>
+
+    <section class="section storefront-showcase" aria-labelledby="storefront-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker mainframe-text">Live application / demo environment</p>
+          <h2 id="storefront-title">Storefront Solutions</h2>
+        </div>
+        <p>
+          This capstone is a working demo. Click the live preview to open the
+          full application in a new tab.
+        </p>
+      </div>
+      <a
+        class="live-preview"
+        href="https://storefrontsolutions.shop/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open the Storefront Solutions live demo in a new tab"
+      >
+        <span class="live-preview-badge">Live demo</span>
+        <iframe
+          src="https://storefrontsolutions.shop/"
+          title="Live preview of the Storefront Solutions demo"
+          loading="lazy"
+          tabindex="-1"
+        ></iframe>
+        <span class="live-preview-action">Open full demo ↗</span>
+      </a>
+    </section>
+
+    <footer>
+      <span>Abenezer Sultan</span>
+      <a href="https://www.linkedin.com/in/abenezer-sultan-a5363623b" target="_blank" rel="noreferrer">LinkedIn</a>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
