@@ -15,6 +15,24 @@
   --nav-h: 72px;
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f3ee;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --line: #d9d1c8;
+  --text: #191614;
+  --muted: #6f665f;
+  --orange: #e85d0b;
+  --orange-2: #c94d00;
+  --orange-dim: rgba(232, 93, 11, 0.11);
+  --shadow: 0 22px 55px rgba(55, 42, 31, 0.12);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
@@ -43,6 +61,11 @@ body::before {
     radial-gradient(900px 500px at 10% -10%, rgba(255, 106, 26, 0.16), transparent 55%),
     radial-gradient(700px 400px at 100% 0%, rgba(255, 138, 61, 0.08), transparent 50%);
   z-index: -1;
+}
+
+html[data-theme="light"] body::before,
+html[data-theme="light"] .hex-field {
+  display: none;
 }
 
 .hex-field {
@@ -118,6 +141,10 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+html[data-theme="light"] .nav {
+  background: rgba(246, 243, 238, 0.9);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -150,6 +177,36 @@ a {
 
 .nav-links a:hover {
   color: var(--orange);
+}
+
+.theme-toggle {
+  min-width: 78px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .nav-cta {
@@ -587,6 +644,33 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+html[data-theme="light"] .certificate-gallery-card {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+html[data-theme="light"] .excel-shell {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .excel-grid th,
+html[data-theme="light"] .excel-grid td {
+  border-color: #ddd4ca;
+}
+
+html[data-theme="light"] .excel-grid thead th {
+  background: #eee9e2;
+}
+
+html[data-theme="light"] .excel-grid tbody tr:nth-child(even) {
+  background: #faf7f3;
+}
+
+html[data-theme="light"] .ig-tile {
+  background:
+    linear-gradient(145deg, rgba(232, 93, 11, 0.16), transparent 50%),
+    #ffffff;
+}
+
 .certificate-copy {
   align-self: start;
   padding-top: 0.25rem;
@@ -678,9 +762,45 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .nav {
+    height: auto;
+    min-height: var(--nav-h);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    padding: 0.65rem 4vw 0.55rem;
+  }
+
   .nav-links {
+    width: 100%;
     gap: 0.8rem;
     font-size: 0.8rem;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-toggle {
+    min-width: 38px;
+    width: 38px;
+    padding: 0;
+  }
+
+  .theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .ig-grid {

@@ -116,7 +116,46 @@ function buildHexField() {
   document.body.prepend(field);
 }
 
+function wireThemeToggle() {
+  const navLinks = document.querySelector(".nav-links");
+  if (!navLinks || navLinks.querySelector(".theme-toggle")) return;
+
+  const button = document.createElement("button");
+  button.className = "theme-toggle";
+  button.type = "button";
+  button.innerHTML = `
+    <span class="theme-toggle-icon" aria-hidden="true"></span>
+    <span class="theme-toggle-label"></span>
+  `;
+
+  const updateButton = () => {
+    const isLight = document.documentElement.dataset.theme === "light";
+    const nextTheme = isLight ? "dark" : "light";
+    button.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+    button.setAttribute("title", `Switch to ${nextTheme} mode`);
+    button.setAttribute("aria-pressed", String(isLight));
+    button.querySelector(".theme-toggle-icon").textContent = isLight ? "☾" : "☀";
+    button.querySelector(".theme-toggle-label").textContent = isLight ? "Dark" : "Light";
+  };
+
+  button.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nextTheme;
+    try {
+      localStorage.setItem("portfolio-theme", nextTheme);
+    } catch {
+      // The selected theme still applies for this page if storage is blocked.
+    }
+    updateButton();
+  });
+
+  const contactLink = navLinks.querySelector(".nav-cta");
+  navLinks.insertBefore(button, contactLink);
+  updateButton();
+}
+
 buildHexField();
+wireThemeToggle();
 renderCarousel();
 wireContact();
 maybeInstagram();
